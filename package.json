@@ -2,8 +2,18 @@
   "name": "firebase-composables",
   "version": "1.0.0.alpha",
   "description": "A collection of composables for dealing with firebase",
-  "main": "index.js",
+  "main": "src/main.js",
   "repository": "git@github.com:ldiebold/firebase-composables.git",
   "author": "Luke Diebold",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.58.0"
+  },
+  "dependencies": {
+    "@vueuse/firebase": "^6.7.3",
+    "firebase": "^8.0.0"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.js"
+  }
 }
