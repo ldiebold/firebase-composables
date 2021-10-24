@@ -1,0 +1,9 @@
+{
+  "name": "firebase-composables",
+  "version": "1.0.0.alpha",
+  "description": "A collection of composables for dealing with firebase",
+  "main": "index.js",
+  "repository": "git@github.com:ldiebold/firebase-composables.git",
+  "author": "Luke Diebold",
+  "license": "MIT"
+}
