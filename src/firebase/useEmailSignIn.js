@@ -1,9 +1,8 @@
-import firebaseAuth from 'services/firebase/firebaseAuth'
-import handlesErrors from 'services/handlesErrors'
+import handlesErrors from '../handlesErrors'
+import { getAuth } from 'firebase/auth'
+import { ref, watch } from 'vue-demi'
 
 export default function () {
-  const { auth } = firebaseAuth()
-
   const loading = ref(false)
 
   const { error, hasErrors } = handlesErrors()
@@ -22,7 +21,7 @@ export default function () {
   const signInWithEmailAndPassword = async () => {
     loading.value = true
     try {
-      await auth.signInWithEmailAndPassword(
+      await getAuth().signInWithEmailAndPassword(
         form.value.email,
         form.value.password
       )

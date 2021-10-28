@@ -1,9 +1,8 @@
-import firebaseAuth from 'services/firebase/firebaseAuth'
-import handlesErrors from 'services/handlesErrors'
+import { getAuth, signInWithPopup } from 'firebase/auth'
+import handlesErrors from '../../handlesErrors'
+import { ref } from 'vue-demi'
 
 export default function (AuthProvider) {
-  const { auth } = firebaseAuth()
-
   const loading = ref(false)
 
   const { error, hasErrors } = handlesErrors()
@@ -12,7 +11,7 @@ export default function (AuthProvider) {
     loading.value = true
     let response
     try {
-      response = await auth.signInWithPopup(new AuthProvider())
+      response = await signInWithPopup(getAuth(), new AuthProvider())
     } catch (err) {
       error.value = err
     }

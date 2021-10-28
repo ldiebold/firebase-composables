@@ -1,6 +1,7 @@
+import { getAuth } from 'firebase/auth'
 import { useRouter } from 'vue-router'
-import useAuthState from 'services/firebase/useAuthState'
-import firebaseApp from 'firebase/app'
+import useAuthState from '../useAuthState'
+import { ref } from 'vue-demi'
 
 export default function redirectIfAuthenticated (path = '/') {
   const router = useRouter()
@@ -12,7 +13,7 @@ export default function redirectIfAuthenticated (path = '/') {
 
   const onChecked = ref(null)
 
-  firebaseApp.auth().onAuthStateChanged(user => {
+  getAuth().onAuthStateChanged(user => {
     if (typeof onChecked.value === 'function') {
       onChecked.value(user)
     }

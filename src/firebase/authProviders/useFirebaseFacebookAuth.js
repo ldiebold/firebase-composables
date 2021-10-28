@@ -1,9 +1,7 @@
-import firebaseApp from 'firebase/app'
+import { FacebookAuthProvider } from 'firebase/auth'
 import useFirebaseAuthProvider from './useFirebaseAuthProvider'
 
 export default function () {
-  const { FacebookAuthProvider } = firebaseApp.auth
-
   const facebookAuthProvider = useFirebaseAuthProvider(FacebookAuthProvider)
 
   return {

@@ -1,9 +1,7 @@
-import firebaseApp from 'firebase/app'
+import { GithubAuthProvider } from 'firebase/auth'
 import useFirebaseAuthProvider from './useFirebaseAuthProvider'
 
 export default function () {
-  const { GithubAuthProvider } = firebaseApp.auth
-
   const githubAuthProvider = useFirebaseAuthProvider(GithubAuthProvider)
 
   return {

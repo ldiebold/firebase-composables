@@ -1,9 +1,7 @@
-import firebaseApp from 'firebase/app'
+import { TwitterAuthProvider } from 'firebase/auth'
 import useFirebaseAuthProvider from './useFirebaseAuthProvider'
 
 export default function () {
-  const { TwitterAuthProvider } = firebaseApp.auth
-
   const twitterAuthProvider = useFirebaseAuthProvider(TwitterAuthProvider)
 
   return {

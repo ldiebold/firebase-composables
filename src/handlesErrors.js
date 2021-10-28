@@ -1,3 +1,5 @@
+import { ref, computed } from 'vue-demi'
+
 export default function () {
   const error = ref({})
   const hasErrors = computed(() => {
