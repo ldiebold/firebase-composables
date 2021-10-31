@@ -1,10 +1,9 @@
 {
   "name": "firebase-composables",
-  "version": "1.0.0alpha",
+  "version": "1.0.0-alpha1",
   "description": "A collection of composables for dealing with firebase",
   "main": "dist/firebase-composables.esm.js",
   "browser": "dist/firebase-composables.esm.js",
-  "module": "dist/vuex-orm.esm-bundler.js",
   "repository": "git@github.com:ldiebold/firebase-composables.git",
   "author": "Luke Diebold",
   "license": "MIT",
@@ -21,10 +20,15 @@
     "eslint-plugin-promise": "^5.1.1",
     "rollup": "^2.58.0"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@vueuse/core": "^6.7.3",
-    "firebase": "^9.0.0",
     "vue-demi": "^0.11.4"
+  },
+  "peerDependencies": {
+    "firebase": "^9.0.0"
   },
   "scripts": {
     "build": "rollup --config rollup.config.js",
