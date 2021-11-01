@@ -1,6 +1,6 @@
 {
   "name": "firebase-composables",
-  "version": "1.0.0-alpha4",
+  "version": "1.0.0-alpha5",
   "description": "A collection of composables for dealing with firebase",
   "main": "dist/firebase-composables.esm.js",
   "browser": "dist/firebase-composables.esm.js",
@@ -18,7 +18,8 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
-    "rollup": "^2.58.0"
+    "rollup": "^2.58.0",
+    "vue-router": "^4.0.0"
   },
   "files": [
     "dist"
