@@ -1,6 +1,6 @@
 {
   "name": "firebase-composables",
-  "version": "1.0.0-alpha6",
+  "version": "1.0.0-alpha7",
   "description": "A collection of composables for dealing with firebase",
   "main": "dist/firebase-composables.esm.js",
   "browser": "dist/firebase-composables.esm.js",
@@ -26,16 +26,11 @@
   ],
   "dependencies": {
     "@vueuse/core": "^6.7.3",
-    "vue-demi": "^0.11.4"
-  },
-  "peerDependencies": {
-    "firebase": "^9.0.0",
+    "vue-demi": "^0.11.4",
     "vue-router": "^4.0.0"
   },
-  "peerDependenciesMeta": {
-    "vue-router": {
-      "optional": true
-    }
+  "peerDependencies": {
+    "firebase": "^9.0.0"
   },
   "scripts": {
     "build": "rollup --config rollup.config.js",
