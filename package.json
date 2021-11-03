@@ -4,6 +4,10 @@
   "author": "Luke Diebold",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
   "workspaces": [
     "examples",
     "firebase-composables"
