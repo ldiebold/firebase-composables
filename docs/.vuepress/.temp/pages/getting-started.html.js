@@ -40,12 +40,12 @@ export const data = {
   ],
   "filePathRelative": "getting-started.md",
   "git": {
-    "updatedTime": 1635983387000,
+    "updatedTime": 1636017593000,
     "contributors": [
       {
         "name": "Luke Diebold",
         "email": "lukediebold@agripath.com.au",
-        "commits": 1
+        "commits": 2
       }
     ]
   }
