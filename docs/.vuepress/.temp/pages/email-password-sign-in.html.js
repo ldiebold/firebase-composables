@@ -45,12 +45,12 @@ export const data = {
   ],
   "filePathRelative": "email-password-sign-in.md",
   "git": {
-    "updatedTime": 1636017593000,
+    "updatedTime": 1636018499000,
     "contributors": [
       {
         "name": "Luke Diebold",
         "email": "lukediebold@agripath.com.au",
-        "commits": 1
+        "commits": 2
       }
     ]
   }

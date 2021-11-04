@@ -5,6 +5,7 @@ const routeItems = [
   ["v-e697be50","/email-password-registration.html","Email Password Registration",["/email-password-registration","/email-password-registration.md"]],
   ["v-26a74aac","/email-password-sign-in.html","Email Password Sign In",["/email-password-sign-in","/email-password-sign-in.md"]],
   ["v-5dc4b15a","/getting-started.html","Getting Started",["/getting-started","/getting-started.md"]],
+  ["v-dd7db3fc","/sign-out.html","Signing Out",["/sign-out","/sign-out.md"]],
   ["v-3706649a","/404.html","",["/404"]],
 ]
 

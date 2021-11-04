@@ -9,7 +9,8 @@ module.exports = {
       '/',
       '/getting-started',
       '/email-password-registration',
-      '/email-password-sign-in'
+      '/email-password-sign-in',
+      '/sign-out'
     ]
   },
   markdown: {
