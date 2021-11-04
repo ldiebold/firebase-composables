@@ -1,4 +1,10 @@
 export const themeData = {
+  "navbar": [
+    {
+      "text": "GitHub",
+      "link": "https://github.com/ldiebold/firebase-composables"
+    }
+  ],
   "sidebar": [
     "/",
     "/getting-started",
@@ -11,7 +17,6 @@ export const themeData = {
       "selectLanguageName": "English"
     }
   },
-  "navbar": [],
   "logo": null,
   "darkMode": true,
   "repo": null,

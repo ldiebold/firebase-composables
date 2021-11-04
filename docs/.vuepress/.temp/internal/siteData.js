@@ -1,7 +1,7 @@
 export const siteData = {
   "base": "/",
   "lang": "en-US",
-  "title": "",
+  "title": "Firebase Composables",
   "description": "",
   "head": [],
   "locales": {}

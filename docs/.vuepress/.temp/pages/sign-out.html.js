@@ -8,6 +8,12 @@ export const data = {
   "headers": [
     {
       "level": 2,
+      "title": "Exposes",
+      "slug": "exposes",
+      "children": []
+    },
+    {
+      "level": 2,
       "title": "Usage",
       "slug": "usage",
       "children": []
@@ -15,8 +21,14 @@ export const data = {
   ],
   "filePathRelative": "sign-out.md",
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1636024787000,
+    "contributors": [
+      {
+        "name": "Luke Diebold",
+        "email": "lukediebold@agripath.com.au",
+        "commits": 1
+      }
+    ]
   }
 }
 

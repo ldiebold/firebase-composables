@@ -2,7 +2,7 @@
 <p>the <code>useSignOut</code> composable has one method:</p>
 <div class="language-javascript ext-js"><pre v-pre class="language-javascript"><code><span class="token function">signOut</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre></div><p>We can also handle errors and loading with <code>error</code>, <code>hasError</code> and <code>loading</code></p>
-<p>Exposes</p>
+<h2 id="exposes" tabindex="-1"><a class="header-anchor" href="#exposes" aria-hidden="true">#</a> Exposes</h2>
 <div class="language-javascript ext-js"><pre v-pre class="language-javascript"><code><span class="token keyword">return</span> <span class="token punctuation">{</span>
   signOut<span class="token punctuation">,</span>
   loading<span class="token punctuation">,</span>

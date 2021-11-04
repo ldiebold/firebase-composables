@@ -5,7 +5,7 @@ signOut()
 ```
 We can also handle errors and loading with `error`, `hasError` and `loading`
 
-Exposes
+## Exposes
 ```js
 return {
   signOut,

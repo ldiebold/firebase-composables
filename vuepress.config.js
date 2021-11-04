@@ -1,9 +1,16 @@
 module.exports = {
+  title: 'Firebase Composables',
   bundler: '@vuepress/bundler-vite',
   bundlerConfig: {
 
   },
   themeConfig: {
+    navbar: [
+      {
+        text: 'GitHub',
+        link: 'https://github.com/ldiebold/firebase-composables'
+      }
+    ],
     sidebar:
     [
       '/',
