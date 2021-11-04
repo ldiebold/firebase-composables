@@ -6,7 +6,10 @@ module.exports = {
   themeConfig: {
     sidebar:
     [
-      '/getting-started'
+      '/',
+      '/getting-started',
+      '/email-password-registration',
+      '/email-password-sign-in'
     ]
   },
   markdown: {

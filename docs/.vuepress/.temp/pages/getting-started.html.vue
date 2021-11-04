@@ -17,7 +17,7 @@
 <blockquote>
 <p>In the code snippet from step 4, firebase shows you how to initialize the app. You don't need any of this code, as <strong>firebase-composables</strong> handles it for you!</p>
 </blockquote>
-<p>before we can use firebase-composables, we need to install the plugin. In vite, this file will usually be <code>main.js</code></p>
+<p>before we can use firebase-composables, we need to install the plugin. The file below will usually be <code>main.js</code></p>
 <div class="language-javascript ext-js"><pre v-pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> firebasePlugin <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'firebase-composables'</span>
 
 <span class="token keyword">const</span> firebaseConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -90,4 +90,5 @@ Hang on, grabbing my snorkel 🤿</p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
-</code></pre></div></template>
+</code></pre></div><p>And that's it.</p>
+</template>

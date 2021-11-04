@@ -20,7 +20,7 @@ Here's how you can find your credentials:
 5. have a cookie 🍪
 > In the code snippet from step 4, firebase shows you how to initialize the app. You don't need any of this code, as **firebase-composables** handles it for you!
 
-before we can use firebase-composables, we need to install the plugin. In vite, this file will usually be `main.js`
+before we can use firebase-composables, we need to install the plugin. The file below will usually be `main.js`
 ```js
 import { firebasePlugin } from 'firebase-composables'
 
@@ -99,3 +99,5 @@ const {
 </template>
 
 ```
+
+And that's it.

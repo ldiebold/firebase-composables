@@ -1,10 +1,13 @@
 <script setup>
 import { useEmailRegister, useAuthState } from 'firebase-composables'
 
-const registerService = useEmailRegister()
-registerService.form.value.name = 'Luke Diebold'
-registerService.form.value.email = 'luke@coolio.com'
-registerService.form.value.password = 'asd'
+const {
+  form,
+  loading,
+  register,
+  hasError,
+  error
+} = useEmailRegister()
 
 const authState = useAuthState()
 </script>
@@ -15,7 +18,7 @@ const authState = useAuthState()
     <label for="text">Name</label>
     <input
       id="text"
-      v-model="registerService.form.value.name"
+      v-model="form.name"
       type="text"
     >
 
@@ -25,7 +28,7 @@ const authState = useAuthState()
     <label for="email">Email</label>
     <input
       id="email"
-      v-model="registerService.form.value.email"
+      v-model="form.email"
       type="email"
     >
 
@@ -35,16 +38,16 @@ const authState = useAuthState()
     <label for="password">Password</label>
     <input
       id="password"
-      v-model="registerService.form.value.password"
+      v-model="form.password"
       type="password"
     >
 
     <br>
 
-    <!-- Register -->
+    <!-- Register Button -->
     <button
-      v-if="!registerService.loading.value"
-      @click="registerService.register"
+      v-if="!loading"
+      @click="register"
     >
       Register
     </button>
@@ -55,10 +58,10 @@ const authState = useAuthState()
     <br>
 
     <div
-      v-if="registerService.hasError.value"
+      v-if="hasError"
       style="color: red;"
     >
-      {{ registerService.error.value.message }}
+      {{ error.message }}
     </div>
 
     <pre>{{ authState }}</pre>

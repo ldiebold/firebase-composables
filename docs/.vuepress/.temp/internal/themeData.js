@@ -1,6 +1,9 @@
 export const themeData = {
   "sidebar": [
-    "/getting-started"
+    "/",
+    "/getting-started",
+    "/email-password-registration",
+    "/email-password-sign-in"
   ],
   "locales": {
     "/": {
