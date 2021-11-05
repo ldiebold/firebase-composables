@@ -4,6 +4,7 @@ import SyncingDataWithFirestore from '../pages/SyncingDataWithFirestore.vue'
 import LogoutPage from '../pages/LogoutPage.vue'
 import RedirectIfAuthenticated from '../pages/RedirectIfAuthenticated.vue'
 import RedirectIfUnauthenticated from '../pages/RedirectIfUnauthenticated.vue'
+import AuthState from '../pages/AuthState.vue'
 
 export default [
   {
@@ -35,5 +36,10 @@ export default [
     path: '/redirect-if-unauthenticated',
     label: 'Redirect if unauthenticated',
     component: RedirectIfUnauthenticated
+  },
+  {
+    path: '/auth-state',
+    label: 'Auth State',
+    component: AuthState
   }
 ]

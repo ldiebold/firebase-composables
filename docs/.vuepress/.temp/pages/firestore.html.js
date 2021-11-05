@@ -1,7 +1,7 @@
 export const data = {
-  "key": "v-dd7db3fc",
-  "path": "/sign-out.html",
-  "title": "Signing Out",
+  "key": "v-6a33a287",
+  "path": "/firestore.html",
+  "title": "Firestore",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -14,21 +14,21 @@ export const data = {
     },
     {
       "level": 2,
-      "title": "Usage",
-      "slug": "usage",
+      "title": "usages",
+      "slug": "usages",
+      "children": []
+    },
+    {
+      "level": 2,
+      "title": "One-way synchronization",
+      "slug": "one-way-synchronization",
       "children": []
     }
   ],
-  "filePathRelative": "sign-out.md",
+  "filePathRelative": "firestore.md",
   "git": {
-    "updatedTime": 1636025225000,
-    "contributors": [
-      {
-        "name": "Luke Diebold",
-        "email": "lukediebold@agripath.com.au",
-        "commits": 2
-      }
-    ]
+    "updatedTime": null,
+    "contributors": []
   }
 }
 

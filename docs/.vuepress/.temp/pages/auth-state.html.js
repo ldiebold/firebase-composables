@@ -1,7 +1,7 @@
 export const data = {
-  "key": "v-dd7db3fc",
-  "path": "/sign-out.html",
-  "title": "Signing Out",
+  "key": "v-6e294014",
+  "path": "/auth-state.html",
+  "title": "Auth State",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -19,16 +19,10 @@ export const data = {
       "children": []
     }
   ],
-  "filePathRelative": "sign-out.md",
+  "filePathRelative": "auth-state.md",
   "git": {
-    "updatedTime": 1636025225000,
-    "contributors": [
-      {
-        "name": "Luke Diebold",
-        "email": "lukediebold@agripath.com.au",
-        "commits": 2
-      }
-    ]
+    "updatedTime": null,
+    "contributors": []
   }
 }
 

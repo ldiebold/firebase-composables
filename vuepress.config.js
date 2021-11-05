@@ -17,7 +17,11 @@ module.exports = {
       '/getting-started',
       '/email-password-registration',
       '/email-password-sign-in',
-      '/sign-out'
+      '/sign-out',
+      '/social-auth-providers',
+      '/auth-state',
+      '/guarding-routes',
+      '/firestore'
     ]
   },
   markdown: {

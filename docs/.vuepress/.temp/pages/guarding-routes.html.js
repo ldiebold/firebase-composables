@@ -1,7 +1,7 @@
 export const data = {
-  "key": "v-dd7db3fc",
-  "path": "/sign-out.html",
-  "title": "Signing Out",
+  "key": "v-082324d0",
+  "path": "/guarding-routes.html",
+  "title": "Guarding routes",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -17,18 +17,18 @@ export const data = {
       "title": "Usage",
       "slug": "usage",
       "children": []
+    },
+    {
+      "level": 2,
+      "title": "Full Example",
+      "slug": "full-example",
+      "children": []
     }
   ],
-  "filePathRelative": "sign-out.md",
+  "filePathRelative": "guarding-routes.md",
   "git": {
-    "updatedTime": 1636025225000,
-    "contributors": [
-      {
-        "name": "Luke Diebold",
-        "email": "lukediebold@agripath.com.au",
-        "commits": 2
-      }
-    ]
+    "updatedTime": null,
+    "contributors": []
   }
 }
 

@@ -1,8 +1,9 @@
 <script setup>
 import { redirectIfAuthenticated } from 'firebase-composables'
 
-const redirector = redirectIfAuthenticated('/')
-redirector.onChecked.value = () => {
+const { onChecked } = redirectIfAuthenticated('/')
+
+onChecked.value = () => {
   console.log('redirecting to home')
 }
 </script>
