@@ -4,10 +4,10 @@
 
 ```sh
 # yarn (the cool kids)
-yarn add firebase-composables
+yarn add firebase-composables firebase
 
 # or npm (the oldschoolers)
-npm install firebase-composables --save
+npm install firebase-composables firebase --save
 ```
 
 ## Add Credentials
@@ -22,7 +22,11 @@ Here's how you can find your credentials:
 
 before we can use firebase-composables, we need to install the plugin. The file below will usually be `main.js`
 ```js
+import { createApp } from 'vue'
+import App from './App.vue'
 import { firebasePlugin } from 'firebase-composables'
+
+const app = createApp(App)
 
 const firebaseConfig = {
   apiKey: 'XXXXXXXXXXX',
@@ -37,6 +41,8 @@ const firebaseConfig = {
 app.use(firebasePlugin, {
   config: firebaseConfig
 })
+
+app.mount('#app')
 ```
 
 ## Email/Password SignIn
@@ -57,7 +63,7 @@ Hang on, grabbing my snorkel 🤿
 
 ```vue
 <script setup>
-import { useEmailSignIn } from 'firebase-composables'
+import { useEmailSignIn, useAuthState } from 'firebase-composables'
 
 // 🤿 first we yank out the form, and sign in function
 // from the composable.
@@ -65,6 +71,9 @@ const {
   form,
   signIn,
 } = useEmailSignIn()
+
+// 🤿 and the auth state, to ensure the user is signed in
+const { user } = useAuthState()
 </script>
 
 <template>
@@ -90,14 +99,16 @@ const {
     <br>🐟
 
     <!-- Then, we call the signIn button on click! -->
-    <button @click="signIn">
+    <button @click.prevent="signIn">
       Sign In
     </button>
+
+    <!-- And display the user -->
+    <pre>{{ user }}</pre>
 
     <!-- Ahhhh!!! 🏊 🦈 -->
   </form>
 </template>
-
 ```
 
 And that's it.

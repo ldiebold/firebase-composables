@@ -8,8 +8,8 @@ export default function () {
   const { error, hasError } = handlesErrors()
 
   const form = ref({
-    email: 'crazybuzz100@gmail.com',
-    password: 'asdfasdf'
+    email: '',
+    password: ''
   })
 
   watch(form, newForm => {
