@@ -1,6 +1,6 @@
 {
   "name": "firebase-composables",
-  "version": "1.0.0-alpha9",
+  "version": "1.0.0-alpha10",
   "description": "A collection of composables for dealing with firebase",
   "main": "dist/firebase-composables.esm.js",
   "module": "dist/firebase-composables.esm.js",
