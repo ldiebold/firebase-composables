@@ -1,12 +1,17 @@
-import { onSnapshot } from 'firebase/firestore'
+import { onSnapshot, DocumentReference } from 'firebase/firestore'
 import { tryOnScopeDispose, isDefined } from '@vueuse/core'
 import { ref } from 'vue-demi'
 
-function isDocumentReference (docRef) {
+export interface FirestoreOptions {
+  errorHandler?: (err: Error) => void
+  autoDispose?: boolean
+}
+
+function isDocumentReference(docRef) {
   return (docRef.path?.match(/\//g) || []).length % 2 !== 0
 }
 
-function getData (docRef) {
+function getData(docRef) {
   const data = docRef.data()
 
   if (data) {
@@ -19,14 +24,14 @@ function getData (docRef) {
   return data
 }
 
-export function useFirestore (
-  docRef,
+export function useFirestore(
+  docRef: DocumentReference,
   initialValue = undefined,
-  options = {}
+  options: FirestoreOptions = {}
 ) {
   const {
     errorHandler = (err) => console.log(err),
-    authDispose = true
+    autoDispose = true
   } = options
 
   if (isDocumentReference(docRef)) {
@@ -47,7 +52,7 @@ export function useFirestore (
       data.value = snapshot.docs.map(getData).filter(isDefined)
     }, errorHandler)
 
-    if (authDispose) {
+    if (autoDispose) {
       tryOnScopeDispose(() => {
         close()
       })

@@ -14,7 +14,12 @@ export default function () {
 
   watch(form, newForm => {
     if (hasError.value) {
-      error.value = {}
+      error.value = {
+        code: null,
+        message: null,
+        name: null,
+        customData: null
+      }
     }
   })
 

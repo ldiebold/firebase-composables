@@ -1,8 +1,9 @@
 import { ref, computed } from 'vue-demi'
+import { AuthError } from '@firebase/auth';
 
-const errorDefault = {
+const errorDefault: AuthError = {
   code: null,
-  mesage: null,
+  message: null,
   name: null,
   customData: null
 }
@@ -14,12 +15,11 @@ export default function () {
     return !!error.value.message || !!error.value.code || !!error.value.name
   })
 
-  function setErrorsFromAuthError (authError) {
-    const { code, message, name, customData } = authError
-    error.value = { code, message, name, customData }
+  function setErrorsFromAuthError(authError: AuthError) {
+    error.value = authError
   }
 
-  function reset () {
+  function reset() {
     error.value = errorDefault
   }
 

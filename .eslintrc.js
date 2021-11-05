@@ -1,16 +1,11 @@
 module.exports = {
-  ignorePatterns: ['dist/**', 'node_modules/**'],
-  env: {
-    browser: true,
-    es2021: true
-  },
-  extends: [
-    'standard'
+  root: true,
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    '@typescript-eslint'
   ],
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
-  rules: {
-  }
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
+  ]
 }
