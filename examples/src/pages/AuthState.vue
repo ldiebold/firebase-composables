@@ -1,10 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { useAuthState } from 'firebase-composables'
 
-const { isAuthenticated, user } = useAuthState()
+const authState = useAuthState()
 </script>
 
 <template>
-  <pre>{{ isAuthenticated }}</pre>
-  <pre>{{ user }}</pre>
+  <pre>{{ authState }}</pre>
 </template>

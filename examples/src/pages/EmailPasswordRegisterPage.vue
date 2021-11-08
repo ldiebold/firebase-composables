@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useEmailRegister, useAuthState } from 'firebase-composables'
 
 const {
@@ -14,16 +14,6 @@ const authState = useAuthState()
 
 <template>
   <form>
-    <!-- Name -->
-    <label for="text">Name</label>
-    <input
-      id="text"
-      v-model="form.name"
-      type="text"
-    >
-
-    <br>
-
     <!-- Email -->
     <label for="email">Email</label>
     <input

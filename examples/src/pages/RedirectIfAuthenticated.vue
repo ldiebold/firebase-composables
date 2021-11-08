@@ -1,7 +1,13 @@
-<script setup>
-import { redirectIfAuthenticated } from 'firebase-composables'
+<script setup lang="ts">
+import { useAuthenticatedRedirector } from 'firebase-composables'
 
-const { onChecked } = redirectIfAuthenticated('/')
+const {
+  onChecked,
+  checking,
+  exec,
+  execOnAuthStateEnsured
+} = useAuthenticatedRedirector('/')
+execOnAuthStateEnsured()
 
 onChecked.value = () => {
   console.log('redirecting to home')
@@ -9,7 +15,7 @@ onChecked.value = () => {
 </script>
 
 <template>
-  <div>
-    If authenticated, this page will redirect to home...
-  </div>
+  <button v-if="!checking" @click="exec">check</button>
+  <span v-else>Checking...</span>
+  <div>If authenticated, this page will redirect to home...</div>
 </template>

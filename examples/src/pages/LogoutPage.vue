@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useSignOut, useAuthState } from 'firebase-composables'
 
 const { signOut, loading } = useSignOut()
