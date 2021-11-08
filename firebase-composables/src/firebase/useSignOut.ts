@@ -1,18 +1,22 @@
 import handlesErrors from '../handlesErrors'
-import { getAuth } from 'firebase/auth'
+import { getAuth, signOut as firebaseSignOut } from "firebase/auth"
 import { ref } from 'vue-demi'
+import { AuthError } from 'firebase/auth'
 
 export default function () {
   const loading = ref(false)
 
-  const { error, hasError } = handlesErrors()
+  const { error, hasError, setErrorsFromAuthError } = handlesErrors()
 
   const signOut = async () => {
     loading.value = true
     try {
-      await getAuth().signOut()
+      const auth = getAuth()
+      await firebaseSignOut(auth)
     } catch (err) {
-      error.value = err
+      if (typeof err === 'object' && err !== null && err.constructor.name === 'FirebaseError') {
+        setErrorsFromAuthError(err as AuthError)
+      }
     }
     loading.value = false
   }

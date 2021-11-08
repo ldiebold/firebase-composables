@@ -1,5 +1,6 @@
 import handlesErrors from '../handlesErrors'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { AuthError } from '@firebase/auth'
 import { ref, watch } from 'vue-demi'
 
 export default function () {
@@ -17,15 +18,8 @@ export default function () {
     password: ''
   })
 
-  watch(form, newForm => {
-    if (hasError.value) {
-      error.value = {
-        code: null,
-        message: null,
-        name: null,
-        customData: null
-      }
-    }
+  watch(form.value, () => {
+    error.value = null
   })
 
   const register = async () => {
@@ -40,8 +34,10 @@ export default function () {
       )
 
       resetErrors()
-    } catch (authError) {
-      setErrorsFromAuthError(authError)
+    } catch (err) {
+      if (typeof err === 'object' && err !== null && err.constructor.name === 'FirebaseError') {
+        setErrorsFromAuthError(err as AuthError)
+      }
     }
     loading.value = false
 

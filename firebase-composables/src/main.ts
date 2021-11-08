@@ -16,8 +16,8 @@ import useEmailRegister from './firebase/useEmailRegister'
 import useEmailSignIn from './firebase/useEmailSignIn'
 
 // Routing
-import redirectIfAuthenticated from './firebase/utils/redirectIfAuthenticated'
-import redirectIfUnauthenticated from './firebase/utils/redirectIfUnauthenticated'
+import useAuthenticatedRedirector from './firebase/utils/useAuthenticatedRedirector'
+import useUnauthenticatedRedirector from './firebase/utils/useUnauthenticatedRedirector'
 
 // Utilities
 import handlesErrors from './handlesErrors'
@@ -39,8 +39,8 @@ export {
   useEmailRegister,
   useEmailSignIn,
   useApp,
-  redirectIfAuthenticated,
-  redirectIfUnauthenticated,
+  useAuthenticatedRedirector,
+  useUnauthenticatedRedirector,
   handlesErrors,
   useFirestore
 }

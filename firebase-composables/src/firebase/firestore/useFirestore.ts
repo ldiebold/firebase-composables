@@ -1,17 +1,26 @@
-import { onSnapshot, DocumentReference } from 'firebase/firestore'
-import { tryOnScopeDispose, isDefined } from '@vueuse/core'
-import { ref } from 'vue-demi'
+import {
+  onSnapshot,
+  DocumentReference,
+  Query,
+  DocumentData,
+  DocumentSnapshot,
+  QueryDocumentSnapshot
+} from 'firebase/firestore'
+import { ref, Ref } from 'vue-demi'
+import { isDef, tryOnScopeDispose } from '@vueuse/shared'
 
 export interface FirestoreOptions {
   errorHandler?: (err: Error) => void
   autoDispose?: boolean
 }
 
-function isDocumentReference(docRef) {
-  return (docRef.path?.match(/\//g) || []).length % 2 !== 0
-}
+export type FirebaseDocRef<T> =
+  Query<T> |
+  DocumentReference<T>
 
-function getData(docRef) {
+function getData<T>(
+  docRef: DocumentSnapshot<T> | QueryDocumentSnapshot<T>,
+) {
   const data = docRef.data()
 
   if (data) {
@@ -24,17 +33,53 @@ function getData(docRef) {
   return data
 }
 
-export function useFirestore(
-  docRef: DocumentReference,
-  initialValue = undefined,
+function isDocumentReference<T>(docRef: any): docRef is DocumentReference<T> {
+  return (docRef.path?.match(/\//g) || []).length % 2 !== 0
+}
+
+export function useFirestore<T extends DocumentData>(
+  docRef: DocumentReference<T>,
+  initialValue: T,
+  options?: FirestoreOptions
+): Ref<T | null>
+export function useFirestore<T extends DocumentData>(
+  docRef: Query<T>,
+  initialValue: T[],
+  options?: FirestoreOptions
+): Ref<T[]>
+
+// nullable initial values
+export function useFirestore<T extends DocumentData>(
+  docRef: DocumentReference<T>,
+  initialValue?: T | undefined,
+  options?: FirestoreOptions,
+): Ref<T | undefined | null>
+export function useFirestore<T extends DocumentData>(
+  docRef: Query<T>,
+  initialValue?: T[],
+  options?: FirestoreOptions
+): Ref<T[] | undefined>
+
+/**
+ * Reactive Firestore binding. Making it straightforward to always keep your
+ * local data in sync with remotes databases.
+ *
+ * @see https://vueuse.org/useFirestore
+ * @param docRef
+ * @param initialValue
+ * @param options
+ */
+export function useFirestore<T extends DocumentData>(
+  docRef: FirebaseDocRef<T>,
+  initialValue: any = undefined,
   options: FirestoreOptions = {}
 ) {
   const {
-    errorHandler = (err) => console.log(err),
+    errorHandler = (err) => console.error(err),
     autoDispose = true
   } = options
 
-  if (isDocumentReference(docRef)) {
+  if (isDocumentReference<T>(docRef)) {
     const data = ref(initialValue)
     const close = onSnapshot(docRef, (snapshot) => {
       data.value = getData(snapshot) || null
@@ -46,10 +91,10 @@ export function useFirestore(
 
     return data
   } else {
-    const data = ref(initialValue)
+    const data = ref(initialValue) as Ref<T[] | undefined>
 
     const close = onSnapshot(docRef, (snapshot) => {
-      data.value = snapshot.docs.map(getData).filter(isDefined)
+      data.value = snapshot.docs.map(getData).filter(isDef)
     }, errorHandler)
 
     if (autoDispose) {

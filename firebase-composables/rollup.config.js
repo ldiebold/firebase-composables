@@ -1,6 +1,6 @@
-// import babel from '@rollup/plugin-babel'
+const production = !process.env.ROLLUP_WATCH;
+
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-// import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 
 export default {
@@ -21,10 +21,6 @@ export default {
       file: './dist/firebase-composables.esm.js',
       format: 'esm'
     }
-    // {
-    //   file: './dist/firebase-composables.cjs.js',
-    //   format: 'cjs'
-    // }
   ],
   plugins: [
     nodeResolve({
@@ -37,6 +33,9 @@ export default {
         'firebase/firestore'
       ]
     }),
-    typescript()
+    typescript({
+      sourceMap: !production,
+      tsconfig: './tsconfig.json'
+    })
   ]
 }

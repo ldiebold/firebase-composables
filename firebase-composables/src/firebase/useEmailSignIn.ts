@@ -1,26 +1,20 @@
 import handlesErrors from '../handlesErrors'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { AuthError } from '@firebase/auth'
 import { ref, watch } from 'vue-demi'
 
 export default function () {
   const loading = ref(false)
 
-  const { error, hasError } = handlesErrors()
+  const { error, hasError, setErrorsFromAuthError } = handlesErrors()
 
   const form = ref({
     email: '',
     password: ''
   })
 
-  watch(form, newForm => {
-    if (hasError.value) {
-      error.value = {
-        code: null,
-        message: null,
-        name: null,
-        customData: null
-      }
-    }
+  watch(form.value, () => {
+    error.value = null
   })
 
   const signIn = async () => {
@@ -34,7 +28,9 @@ export default function () {
         form.value.password
       )
     } catch (err) {
-      error.value = err
+      if (typeof err === 'object' && err !== null && err.constructor.name === 'FirebaseError') {
+        setErrorsFromAuthError(err as AuthError)
+      }
     }
     loading.value = false
   }

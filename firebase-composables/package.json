@@ -5,6 +5,7 @@
   "main": "dist/firebase-composables.esm.js",
   "module": "dist/firebase-composables.esm.js",
   "browser": "dist/firebase-composables.esm.js",
+  "typings": "dist/src/main.d.ts",
   "repository": "git@github.com:ldiebold/firebase-composables.git",
   "author": "Luke Diebold",
   "license": "MIT",
