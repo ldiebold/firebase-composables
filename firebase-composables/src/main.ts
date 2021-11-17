@@ -15,12 +15,11 @@ import useAuthState from './firebase/useAuthState'
 import useEmailRegister from './firebase/useEmailRegister'
 import useEmailSignIn from './firebase/useEmailSignIn'
 
-// Routing
-import useAuthenticatedRedirector from './firebase/utils/useAuthenticatedRedirector'
-import useUnauthenticatedRedirector from './firebase/utils/useUnauthenticatedRedirector'
-
 // Utilities
 import handlesErrors from './handlesErrors'
+import useAuthenticatedRedirector from './firebase/utils/useAuthenticatedRedirector'
+import useUnauthenticatedRedirector from './firebase/utils/useUnauthenticatedRedirector'
+import useAuthRedirector from './firebase/utils/useAuthRedirector'
 
 // Firestore
 import { useFirestore } from './firebase/firestore/useFirestore'
@@ -28,6 +27,7 @@ import getFirestore from './firebase/firestore/getFirestore'
 
 export {
   getFirestore,
+  useAuthRedirector,
   useFirebaseAuthProvider,
   useFirebaseFacebookAuth,
   useFirebaseGithubAuth,

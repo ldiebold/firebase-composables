@@ -1,10 +1,10 @@
 import { getAuth } from 'firebase/auth'
+import { getApp } from 'firebase/app'
 import { computed, ref } from 'vue-demi'
-import useApp from './useApp'
 import { createGlobalState } from "@vueuse/shared"
 
 export default createGlobalState(() => {
-  const app = useApp()
+  const app = getApp()
   const auth = getAuth(app)
 
   const user = ref(auth.currentUser)

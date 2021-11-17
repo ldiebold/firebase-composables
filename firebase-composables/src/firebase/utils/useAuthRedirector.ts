@@ -1,14 +1,17 @@
 import { getAuth, User } from 'firebase/auth'
 import useAuthState from '../useAuthState'
 import { ref, unref } from 'vue-demi'
-import { RouteLocationRaw, useRouter } from 'vue-router'
+import { RouteLocationRaw, useRouter, Router } from 'vue-router'
 import { MaybeRef } from '@vueuse/core'
 
 type UserOnCheckedFunction = (user: User | null) => void
 type RedirectTriggers = 'authenticated' | 'unauthenticated' | 'error'
 
-export default function useAuthRedirector(redirectOn: RedirectTriggers, redirectTo: MaybeRef<RouteLocationRaw>) {
-  const router = useRouter()
+export default function useAuthRedirector(
+  redirectOn: RedirectTriggers,
+  redirectTo: MaybeRef<RouteLocationRaw>,
+  router: Router = useRouter()
+) {
   const checking = ref(false)
   const auth = getAuth()
 
@@ -41,19 +44,25 @@ export default function useAuthRedirector(redirectOn: RedirectTriggers, redirect
       if (typeof onChecked.value === 'function') {
         onChecked.value(authUser)
       }
-      if (isAuthenticated.value === false) {
+
+      if (!isAuthenticated.value && redirectOn === 'unauthenticated') {
         router.push(unref(redirectTo))
       }
+
+      if (isAuthenticated.value && redirectOn === 'authenticated') {
+        router.push(unref(redirectTo))
+      }
+
       checking.value = false
       unsubscribe()
     })
   }
 
   function triggerRedirect() {
-    if (isAuthenticated.value === true && redirectOn === 'authenticated') {
+    if (isAuthenticated.value && redirectOn === 'authenticated') {
       router.push(unref(redirectTo))
     }
-    if (isAuthenticated.value === false && redirectOn === 'unauthenticated') {
+    if (!isAuthenticated.value && redirectOn === 'unauthenticated') {
       router.push(unref(redirectTo))
     }
   }

@@ -3,12 +3,12 @@ import { initializeApp, FirebaseOptions } from 'firebase/app'
 import { FirebaseAppKey } from './types/symbols'
 
 interface Options {
-  config: FirebaseOptions
+  credentials: FirebaseOptions
 }
 
 export default {
   install: (vueApp: App, options: Options) => {
-    const app = initializeApp(options.config)
+    const app = initializeApp(options.credentials)
     vueApp.provide(FirebaseAppKey, app)
   }
 }

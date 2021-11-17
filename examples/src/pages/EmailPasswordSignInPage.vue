@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useEmailSignIn, useAuthState } from 'firebase-composables'
 
 const {
@@ -20,44 +20,23 @@ const {
   <form>
     <!-- Email -->
     <label for="email">Email</label>
-    <input
-      id="email"
-      v-model="form.email"
-      type="email"
-    >
+    <input id="email" v-model="form.email" type="email" />
 
-    <br>
+    <br />
 
     <!-- Password -->
     <label for="password">Password</label>
-    <input
-      id="password"
-      v-model="form.password"
-      type="password"
-    >
+    <input id="password" v-model="form.password" type="password" />
 
-    <br>
+    <br />
 
     <!-- Sign In -->
-    <button
-      v-if="!loading"
-      :disabled="isAuthenticated"
-      @click="signIn"
-    >
-      Sign In
-    </button>
-    <div v-else>
-      Signing In...
-    </div>
+    <button v-if="!loading" :disabled="isAuthenticated" @click="signIn">Sign In</button>
+    <div v-else>Signing In...</div>
 
-    <br>
+    <br />
 
-    <div
-      v-if="hasError"
-      style="color: red;"
-    >
-      {{ error.message }}
-    </div>
+    <div v-if="hasError" style="color: red;">{{ error.message }}</div>
 
     <pre>{{ authState }}</pre>
   </form>
