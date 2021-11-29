@@ -2,10 +2,12 @@
 import { GoogleAuthProvider } from 'firebase/auth'
 import useFirebaseAuthProvider from './useFirebaseAuthProvider'
 
-export default function () {
+export const useFirebaseGoogleAuth = () => {
   const googleAuthProvider = useFirebaseAuthProvider(new GoogleAuthProvider())
 
   return {
     ...googleAuthProvider
   }
 }
+
+export default useFirebaseGoogleAuth

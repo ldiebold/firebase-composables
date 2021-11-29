@@ -8,7 +8,8 @@
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "build": "cd ./firebase-composables && yarn build",
-    "watch": "cd ./firebase-composables && yarn watch"
+    "watch": "cd ./firebase-composables && yarn watch",
+    "dev": "cd examples && yarn dev"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-beta.27",

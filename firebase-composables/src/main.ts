@@ -1,6 +1,6 @@
 // Plugin
-import firebasePlugin from './firebase/firebasePlugin'
-import useApp from './firebase/useApp'
+export { firebasePlugin } from './firebase/firebasePlugin'
+export { useApp } from './firebase/useApp'
 
 // Social Auth Providers
 import useFirebaseAuthProvider from './firebase/authProviders/useFirebaseAuthProvider'
@@ -10,37 +10,26 @@ import useFirebaseGoogleAuth from './firebase/authProviders/useFirebaseGoogleAut
 import useFirebaseTwitterAuth from './firebase/authProviders/useFirebaseTwitterAuth'
 
 // Auth
-import useSignOut from './firebase/useSignOut'
-import useAuthState from './firebase/useAuthState'
-import useEmailRegister from './firebase/useEmailRegister'
-import useEmailSignIn from './firebase/useEmailSignIn'
+export { useIdentityPasswordLogout } from './firebase/useIdentityPasswordLogout'
+export { useAuthState } from './firebase/useAuthState'
+export { useIdentityPasswordRegister } from './firebase/useIdentityPasswordRegister'
+export { useIdentityPasswordLogin } from './firebase/useIdentityPasswordLogin'
+export { useFetchUser } from './firebase/useFetchUser'
 
 // Utilities
-import handlesErrors from './handlesErrors'
-import useAuthenticatedRedirector from './firebase/utils/useAuthenticatedRedirector'
-import useUnauthenticatedRedirector from './firebase/utils/useUnauthenticatedRedirector'
-import useAuthRedirector from './firebase/utils/useAuthRedirector'
+export { useHandlesErrors } from './useHandlesErrors'
+export { useAuthenticatedRedirector } from './firebase/utils/useAuthenticatedRedirector'
+export { useUnauthenticatedRedirector } from './firebase/utils/useUnauthenticatedRedirector'
+export { useAuthRedirector } from './firebase/utils/useAuthRedirector'
 
 // Firestore
-import { useFirestore } from './firebase/firestore/useFirestore'
-import getFirestore from './firebase/firestore/getFirestore'
+export { useFirestore } from './firebase/firestore/useFirestore'
+export { getFirestore } from './firebase/firestore/getFirestore'
 
 export {
-  getFirestore,
-  useAuthRedirector,
   useFirebaseAuthProvider,
   useFirebaseFacebookAuth,
   useFirebaseGithubAuth,
   useFirebaseGoogleAuth,
   useFirebaseTwitterAuth,
-  firebasePlugin,
-  useAuthState,
-  useSignOut,
-  useEmailRegister,
-  useEmailSignIn,
-  useApp,
-  useAuthenticatedRedirector,
-  useUnauthenticatedRedirector,
-  handlesErrors,
-  useFirestore
 }

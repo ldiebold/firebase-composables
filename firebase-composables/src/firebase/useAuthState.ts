@@ -2,8 +2,9 @@ import { getAuth } from 'firebase/auth'
 import { getApp } from 'firebase/app'
 import { computed, ref } from 'vue-demi'
 import { createGlobalState } from "@vueuse/shared"
+import { UseAuthState, AuthState } from 'auth-composables'
 
-export default createGlobalState(() => {
+export const useAuthState: UseAuthState = createGlobalState<AuthState>(() => {
   const app = getApp()
   const auth = getAuth(app)
 
@@ -21,3 +22,5 @@ export default createGlobalState(() => {
     user
   }
 })
+
+export default useAuthState

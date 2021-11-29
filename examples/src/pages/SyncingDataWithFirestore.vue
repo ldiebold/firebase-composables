@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { getFirestore, useFirestore } from 'firebase-composables'
 import { collection, addDoc } from 'firebase/firestore'
 import { ref } from 'vue-demi'

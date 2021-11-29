@@ -1,17 +1,17 @@
-import { getAuth, User } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 import useAuthState from '../useAuthState'
 import { ref, unref } from 'vue-demi'
 import { RouteLocationRaw, useRouter, Router } from 'vue-router'
 import { MaybeRef } from '@vueuse/core'
+import { RedirectTriggers, UseAuthRedirector } from 'auth-composables'
 
-type UserOnCheckedFunction = (user: User | null) => void
-type RedirectTriggers = 'authenticated' | 'unauthenticated' | 'error'
+type UserOnCheckedFunction = (user: unknown | null) => void
 
-export default function useAuthRedirector(
+export const useAuthRedirector: UseAuthRedirector = (
   redirectOn: RedirectTriggers,
-  redirectTo: MaybeRef<RouteLocationRaw>,
+  redirectTo: MaybeRef<RouteLocationRaw> = ref('/'),
   router: Router = useRouter()
-) {
+) => {
   const checking = ref(false)
   const auth = getAuth()
 
@@ -76,3 +76,5 @@ export default function useAuthRedirector(
     onChecked
   }
 }
+
+export default useAuthRedirector
